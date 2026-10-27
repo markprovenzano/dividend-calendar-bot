@@ -1,8 +1,8 @@
 # Optional local model
 
-Text-only work — summarizing the digest and drafting event descriptions — can go to a local model server the user already runs (Ollama or any OpenAI-compatible endpoint).
+Text-only work — summaries and drafts — can go to a local model server the user already runs (Ollama or any OpenAI-compatible endpoint). This is optional.
 
-Data lookups, decisions, and calendar writes stay in the bot. If `LOCAL_LLM_URL` or `LOCAL_LLM_MODEL` is unset, or a call fails, the bot does that work itself.
+Data lookups, math, decisions, and writes (Sheet and Calendar) stay in the bot. If `LOCAL_LLM_URL` or `LOCAL_LLM_MODEL` is unset, or a call fails, the bot does that work itself.
 
 ## Setup
 Store the endpoint and model as bot secrets or environment variables. Never commit them to this repo.

@@ -1,16 +1,20 @@
 # Dividend Calendar Bot
 
-A Grok Bot template that keeps an up-to-date Google Calendar of upcoming dividend payments for your holdings.
+A Grok Bot template that projects upcoming dividend income from your holdings into a Google Sheet, with an optional Google Calendar.
 
 ## What it does
-- Pulls current holdings and past dividends from Finance or Robinhood
-- Looks up upcoming ex-dividend / pay dates on the web, or estimates them from past payment frequency
-- Creates or updates events on a "Dividends" calendar, matched by a stable `div-key`
+- Pulls holdings and recent dividend history from Finance or Robinhood, then public sources
+- Projects future payments from the latest regular per-share payout and the inferred cadence
+- Writes a private Google Sheet named "Dividend Calendar" (tabs: Summary, Payments, Monthly, Daily, Holdings) through Google Drive, so no browser sign-in is needed
+- Optionally mirrors pay dates on a calendar you already have, rolled 3 months forward and updated in place
 - Can run on a schedule (weekly refresh, in your timezone)
 
-## Connectors required
-- Google Calendar
-- Finance **or** Robinhood Agentic (or both)
+## Connectors
+- Google Drive (required, for the Sheet)
+- Finance **or** Robinhood Agentic (holdings)
+- Google Calendar (optional)
+
+Setup shows only the connect cards that are still missing.
 
 ## How to use
 1. Create a fresh Grok Bot
@@ -19,7 +23,7 @@ A Grok Bot template that keeps an up-to-date Google Calendar of upcoming dividen
 4. Test with “Run a dry-run of the dividend calendar”
 
 ## Optional local model
-If you run a local model server, the bot can send text-only work (digest summarizing, drafting event descriptions) there. See `LOCAL_MODELS.md`. Data lookups, decisions, and calendar writes stay in the bot. If no endpoint is set, the bot does that work itself.
+If you run a local model server, the bot can send text-only work (summaries and drafts) there. See `LOCAL_MODELS.md`. Data lookups, math, decisions, and writes stay in the bot. If no endpoint is set, the bot does that work itself.
 
 ## Files
 - `DESCRIPTION.md` — Bot identity and standing rules
